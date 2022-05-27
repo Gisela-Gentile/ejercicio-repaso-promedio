@@ -20,13 +20,18 @@ let edadMax: number = Number(prompt("Ingrese la edad máxima"));
 let edades: number[] = new Array(cantidadChicos);
 let suma: number = 0;
 
-for (let i: number = 0; i < cantidadChicos; i++) {
-  edades[i] = numeroAleatorio(edadMin, edadMax);
-  suma = suma + edades[i];
-}
+//Función promedio
+let promedio = (cantidad: number): number => {
+  for (let i: number = 0; i < cantidad; i++) {
+    edades[i] = numeroAleatorio(edadMin, edadMax);
+    suma = suma + edades[i];
+  }
+  return suma / cantidad;
+};
+// muestra edades y promedio
 console.log("Las edades son:", edades);
 console.log(
   "El promedio de las edades es: ",
-  (suma / cantidadChicos).toFixed(0),
+  promedio(cantidadChicos).toFixed(0),
   " años"
 );
